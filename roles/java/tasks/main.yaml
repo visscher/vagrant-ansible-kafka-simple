@@ -8,7 +8,7 @@
 - name: symlink kafka to kafka version
   ansible.builtin.file:
     src: /opt/jre1.8.0_281
-    dest: /opt/jre
+    dest: /opt/java
     state: link
 
 - name: Update java configuration in global profile
@@ -16,5 +16,5 @@
     path: /etc/profile.d/java-path.sh
     create: yes
     block: |
-      export JAVA_HOME=/opt/jre
+      export JAVA_HOME=/opt/java
       export PATH=${PATH}:${JAVA_HOME}/bin
