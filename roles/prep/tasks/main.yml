@@ -1,0 +1,31 @@
+---
+- name: Add the user kafka
+  user:
+    state: present
+    name: kafka
+    shell: /bin/bash
+    create_home: yes
+
+- name: Extract kafka tar to opt kafka
+  ansible.builtin.unarchive:
+    src: /install/kafka_2.13-2.7.0.tgz
+    dest: /opt/
+    owner: kafka
+    group: kafka
+    remote_src: yes
+
+- name: symlink kafka to kafka version
+  ansible.builtin.file:
+    src: /opt/kafka_2.13-2.7.0
+    dest: /opt/kafka
+    state: link
+
+- name: Copy zookeeper service file
+  ansible.builtin.copy:
+    src: files/zookeeper.service
+    dest: /etc/systemd/system/zookeeper.service
+
+- name: Copy kafka service file
+  ansible.builtin.copy:
+    src: files/kafka.service
+    dest: /etc/systemd/system/kafka.service

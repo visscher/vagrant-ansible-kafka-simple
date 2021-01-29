@@ -1,0 +1,18 @@
+---
+- hosts: virtual
+
+  become: true
+
+  vars:
+    JAVA_HOME: '/opt/java'
+    PATH: '/opt/java/bin:{{ ansible_env.PATH }}'
+
+  vars_files:
+
+
+  roles:
+    - prep
+    - java
+    - kafkabroker
+
+

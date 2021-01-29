@@ -1,0 +1,5 @@
+---
+- name: Make sure kafka is running
+  ansible.builtin.systemd:
+    state: started
+    name: kafka
