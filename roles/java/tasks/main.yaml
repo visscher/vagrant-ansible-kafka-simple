@@ -5,7 +5,7 @@
     dest: /opt/
     remote_src: yes
 
-- name: symlink kafka to kafka version
+- name: symlink java to java version
   ansible.builtin.file:
     src: /opt/jre1.8.0_281
     dest: /opt/java
