@@ -18,3 +18,10 @@
     block: |
       export JAVA_HOME=/opt/java
       export PATH=${PATH}:${JAVA_HOME}/bin
+
+- name: make java an alternative so it can be used systemwide
+  alternatives:
+    name: java
+    link: /usr/local/bin/java
+    path: /opt/java/bin/java
+    priority: 10
