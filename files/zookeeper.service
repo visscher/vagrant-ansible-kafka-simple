@@ -5,9 +5,10 @@ After=network.target remote-fs.target
 [Service]
 Type=simple
 User=kafka
+Environment=JAVA_HOME=/opt/java
 ExecStart=/opt/kafka/bin/zookeeper-server-start.sh /opt/kafka/config/zookeeper.properties
 ExecStop=/opt/kafka/bin/zookeeper-server-stop.sh
-Restart=on-abnormal
+Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target

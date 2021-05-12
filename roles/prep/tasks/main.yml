@@ -20,12 +20,12 @@
     dest: /opt/kafka
     state: link
 
-- name: Copy zookeeper service file
+- name: Copy zookeeper unit service file
   ansible.builtin.copy:
     src: files/zookeeper.service
     dest: /etc/systemd/system/zookeeper.service
 
-- name: Copy kafka service file
+- name: Copy kafka unit service file
   ansible.builtin.copy:
     src: files/kafka.service
     dest: /etc/systemd/system/kafka.service
